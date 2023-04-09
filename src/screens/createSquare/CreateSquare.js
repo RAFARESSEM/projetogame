@@ -1,23 +1,23 @@
 import React from "react";
-import './Login.css';
+import './CreateSquare.css';
 import Card from "../../components/Card";
 import FormGroup from "../../components/FormGroup";
 
 export default class Login extends React.Component{
 
     state={
-        email:'',
-        password: ''
+        name:'',
+        piece: ''
     }
 
     login=() =>{
-        console.log('Email: ', this.state.email);
-        console.log('Password: ', this.state.password);
+        console.log('name: ', this.state.name);
+        console.log('piece: ', this.state.piece);
         this.props.history.push('/home')
     }
 
-    createUser=()=>{
-        this.props.history.push('/createUser');
+    createPiece=()=>{
+        this.props.history.push('/createPiece');
     }
 
     render(){
@@ -26,25 +26,25 @@ export default class Login extends React.Component{
             <div className='row'>
               <div className='col-md-6' style={this.styles.colMd6}>
                  <div className='bs-docs-section'>
-                    <Card title='Login'>
+                    <Card title='criar square'>
                     <div className='row'>
                        <div className='col-lg-12'>
                           <div className='bs-component'>
                           <fieldset>
-                            <FormGroup label='Email: *'>
-                             <input type='email' className='from-control' id='inputEmail'
-                             area-aria-describedby='emailHelp' placeholder='digite o email'
-                             value={this.state.email} onChange={(e)=> this.setState({email: e.target.value})} />
+                            <FormGroup label='name: *'>
+                             <input type='name' className='from-control' id='inputName'
+                             area-aria-describedby='NameHelp' placeholder='digite o nome'
+                             value={this.state.name} onChange={(e)=> this.setState({name: e.target.value})} />
                              </FormGroup>
                              <br/>
-                             <FormGroup label='password: *'>
-                             <input type='password' className='from-control' id='inputPassword'
-                             placeholder='digite a senha'
-                             value={this.state.password} onChange={(e)=> this.setState({password: e.target.value})} />
+                             <FormGroup label='piece: *'>
+                             <input type='piece' className='from-control' id='inputPiece'
+                             placeholder='digite a piece'
+                             value={this.state.piece} onChange={(e)=> this.setState({piece: e.target.value})} />
                               </FormGroup>
                               <br/>
                             <button className='btn btn-success' onClick={this.login}>Entrar</button>
-                            <button className='btn btn-danger' onClick={this.createUser}>Cadastrar</button>
+                            <button className='btn btn-danger' onClick={this.createPiece}>Cadastrar</button>
                                </fieldset>
                           </div>
                          </div>

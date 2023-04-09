@@ -15,9 +15,9 @@ function Navbar(props){
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
                         <NavbarItem href="/Home" label="Home"/>
-                        <NavbarItem href="/createUser" label="cadastro"/>
-                        <NavbarItem href="/Login" label="Login"/>
+                        <NavbarItem href="/Login" label="CreateSquare"/>
                         <NavbarItem href="/patchNote" label="patchNote"/>
+                        <NavbarItem href="/createPiece" label="CreatePiece"/>
                     </ul>
                 </div>
             </div>

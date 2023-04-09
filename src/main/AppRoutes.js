@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
-
-import login from "../screens/login/Login";
-import createuser from "../screens/createUser/CreateUser";
+import login from "../screens/createSquare/CreateSquare";
 import Home from "../screens/Home/Home";
 import patchNote from "../screens/patchNote/patchnote";
+import CreatePiece from "../screens/createPiece/CreatePiece";
+
 
 function AppRoutes(){
     return(
@@ -13,7 +13,7 @@ function AppRoutes(){
             <Route component={ patchNote } path="/patchnote" />
             <Route component={ login} path="/login" />
             <Route component={ Home} path="/Home" />
-            <Route component={ createuser} path="/createUser" />
+            <Route component={ CreatePiece} path="/CreatePiece" />
         </BrowserRouter>
     );
 }
