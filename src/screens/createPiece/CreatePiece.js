@@ -9,6 +9,7 @@ export default class CreatePiece extends React.Component{
     state={
         clas:''
     }
+
     create= async()=>{
         await axios.post('http://localhost:8080/api/piece',
        {
@@ -25,6 +26,9 @@ export default class CreatePiece extends React.Component{
                 );
                 console.log('request finished');
         }
+        cancel=()=>{
+            this.props.history.push('/patchnote');
+        }
 
         render(){
             return(
@@ -33,13 +37,15 @@ export default class CreatePiece extends React.Component{
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="bs-component">
-                                    <FormGroup label="Clas: *" htmlFor="inputclas"> 
+                                    <fieldset>
+                                    <FormGroup label="clas: *" htmlFor="inputclas"> 
                                         <input type="text"
-                                            id="inputclas"
                                             className="form-control"
-                                            clas="clas"
-                                            onCharge={e => this.setState({clas: e.target.value})}/>
+                                            id="inputClas"
+                                            area-aria-describedby='clasHelp' placeholder='digite a clas'
+                                            value={this.state.clas} onChange={(e) => this.setState({clas: e.target.value})}/>
                                     </FormGroup>
+                                    </fieldset>
                                     <button onClick={this.create} type="button" className="btn btn-success">
                                         <i className="pi pi-save"></i> Salvar
                                     </button>

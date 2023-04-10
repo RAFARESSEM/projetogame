@@ -1,6 +1,7 @@
 import React from "react";
 import NavbarItem from "./NavBarItem";
 
+
 function Navbar(props){
     return(
         <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -15,9 +16,15 @@ function Navbar(props){
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
                         <NavbarItem href="/Home" label="Home"/>
-                        <NavbarItem href="/Login" label="CreateSquare"/>
+                        <NavbarItem href="/createsquare" label="CreateSquare"/>
                         <NavbarItem href="/patchNote" label="patchNote"/>
                         <NavbarItem href="/createPiece" label="CreatePiece"/>
+                        <NavbarItem href="/alterarPiece" label="AlterarPiece"/>
+                        <NavbarItem href="/alterarSquare" label="AlterarSquare"/>
+                        <NavbarItem href="/deletePiece" label="deletePiece"/>
+                        <NavbarItem href="/deletesquare" label="deletesquare"/>
+                        <NavbarItem href="/BuscarSquare" label="buscarSquare"/>
+                        <NavbarItem href="/BuscarPiece" label="buscarPiece"/>
                     </ul>
                 </div>
             </div>

@@ -2,18 +2,30 @@ import React from "react";
 import './CreateSquare.css';
 import Card from "../../components/Card";
 import FormGroup from "../../components/FormGroup";
+import axios from 'axios';
 
-export default class Login extends React.Component{
+export default class CreateSquare extends React.Component{
 
     state={
         name:'',
         piece: ''
     }
-
-    login=() =>{
-        console.log('name: ', this.state.name);
-        console.log('piece: ', this.state.piece);
-        this.props.history.push('/home')
+    create=async() =>{
+        await axios.post('http://localhost:8080/api/square',
+        {
+            name: this.state.name,
+            //piece: this.state.piece
+        }
+        ).then(response=>
+            {
+            console.log(response);
+            }
+        ).catch( error=>
+            {
+            console.log(error.response);
+            }
+        );
+        console.log('request finished');
     }
 
     createPiece=()=>{
@@ -22,37 +34,40 @@ export default class Login extends React.Component{
 
     render(){
         return(
-            <div className='container'>
-            <div className='row'>
-              <div className='col-md-6' style={this.styles.colMd6}>
-                 <div className='bs-docs-section'>
-                    <Card title='criar square'>
+            <div className='container'>       
+                    <Card title='Cadastro de square'>
                     <div className='row'>
                        <div className='col-lg-12'>
                           <div className='bs-component'>
-                          <fieldset>
-                            <FormGroup label='name: *'>
-                             <input type='name' className='from-control' id='inputName'
-                             area-aria-describedby='NameHelp' placeholder='digite o nome'
-                             value={this.state.name} onChange={(e)=> this.setState({name: e.target.value})} />
+                          <FormGroup label="name: *" htmlFor="inputname"> 
+                                        <input type="text"
+                                            id="inputName"
+                                            className="form-control"
+                                            name="name"
+                                            value={this.state.name} onChange={(e)=> this.setState({name: e.target.value})} />
                              </FormGroup>
                              <br/>
-                             <FormGroup label='piece: *'>
-                             <input type='piece' className='from-control' id='inputPiece'
-                             placeholder='digite a piece'
-                             value={this.state.piece} onChange={(e)=> this.setState({piece: e.target.value})} />
+                             <FormGroup label="piece *" htmlFor="inputpiece"> 
+                                        <input type="text"
+                                            id="inputPiece"
+                                            className="form-control"
+                                            piece="piece"
+                                        value={this.state.piece} onChange={(e)=> this.setState({piece: e.target.value})} />
+        
                               </FormGroup>
                               <br/>
-                            <button className='btn btn-success' onClick={this.login}>Entrar</button>
-                            <button className='btn btn-danger' onClick={this.createPiece}>Cadastrar</button>
-                               </fieldset>
+                              <button onClick={this.create} type="button" className="btn btn-success">
+                                        <i className="pi pi-save"></i> criarsquare
+                                    </button>
+                                    <button onClick={this.createPiece} type="button" className="btn btn-danger">
+                                        <i className="pi pi-times"></i> criarpeca
+                                    </button>
+                           
                           </div>
                          </div>
                      </div>
             </Card>
-         </div>      
-        </div>
-    </div>
+   
 </div>
         )
         }
